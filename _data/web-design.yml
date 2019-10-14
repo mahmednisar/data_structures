@@ -1,0 +1,26 @@
+- name: HTML5
+  percentage: 90
+  color: 
+
+- name: CSS3
+  percentage: 80
+  color: success
+
+- name: Javascript
+  percentage: 50
+  color: danger
+
+- name: Bootstrap
+  percentage: 90
+  color: info
+
+- name: Jekyll
+  percentage: 30
+  color: danger
+
+
+- name: Django
+  percentage: 60
+  color: 
+
+

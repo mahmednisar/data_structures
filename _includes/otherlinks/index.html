@@ -1,0 +1,27 @@
+<!-- Remote Projects JS -->
+<script src="{{ '/assets/js/remote-projects.js' | relative_url }}"></script>
+
+<div class="card-columns m-3 mt-5">
+
+
+  <!-- Local Projects -->
+  {% for link in site.links %}
+
+  
+    {% assign link_id    =  link.name | slugify %}
+    {% assign link_img   = link.image %}
+    {% assign link_name  = link.name %}
+    {% assign link_desc  = link.description %}
+    {% assign link_tools = link.tools %}
+
+    {% if link.external_url %}
+      {% assign link_url = link.external_url %}
+    {% else %}
+      {% assign link_url = link.url | relative_url %}
+    {% endif %}
+
+    {% include otherlinks/link-card.html %}
+
+  {% endfor %}
+
+</div>

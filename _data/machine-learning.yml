@@ -1,0 +1,23 @@
+- name: Numpy
+  percentage: 75
+  color: info
+
+- name: Matplotlib
+  percentage: 60
+  color: danger
+
+- name: Pandas
+  percentage: 65
+  color: dark
+
+- name: OpenCV
+  percentage: 60
+  color: success
+
+- name: Tensorflow
+  percentage: 25
+  color: 
+
+- name: NLTK
+  percentage: 20
+  color: success

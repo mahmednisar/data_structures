@@ -1,0 +1,16 @@
+
+- name: Markdown
+  percentage: 90
+  color: dark
+
+- name: Adobe Photoshop
+  percentage: 45
+  color: danger
+
+- name: Adobe Illustrator
+  percentage: 40
+  color: success
+
+- name: Coreldraw
+  percentage: 35
+  color: 

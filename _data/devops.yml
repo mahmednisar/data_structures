@@ -1,0 +1,7 @@
+- name: Ansible
+  percentage: 35
+  color: info
+
+- name: Docker
+  percentage: 40
+  color: success

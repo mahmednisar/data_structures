@@ -1,0 +1,16 @@
+
+- name: C
+  percentage: 80
+  color: dark
+
+- name: Java
+  percentage: 70
+  color: danger
+
+- name: Python
+  percentage: 70
+  color: 
+
+- name: C++
+  percentage: 30
+  color: success

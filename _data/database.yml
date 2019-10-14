@@ -1,0 +1,11 @@
+- name: MySQL
+  percentage: 75
+  color: danger
+
+- name: MSSQL
+  percentage: 55
+  color: dark
+
+- name: Oracle SQL
+  percentage: 50
+  color: success
