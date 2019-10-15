@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nisar Ahmed">
+
+  <title>Data Structures Logic</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"> 
+    <h5><b><img src="/assets/image/ds.jpg"   height="18em" width="20em" data-wow-delay=".1s"> Data Structures Logic</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /concepts/ ">Concept</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /other_links/ ">Other Links</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" https://nisarahmed.me "><img src="/assets/image/head.png" width="20 em" height="20 em"></a>
+          
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>Linked List- Program</b></h1>
+
+<p class="article-metadata text-muted">
+  09 October 2019 -  
+  <b>
+  
+  
+    4 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#program">
+      <span class="tag badge badge-pill text-primary border border-primary">Program</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#implementation">
+      <span class="tag badge badge-pill text-primary border border-primary">Implementation</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#java">
+      <span class="tag badge badge-pill text-primary border border-primary">Java</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#c">
+      <span class="tag badge badge-pill text-primary border border-primary">C</span>
+    </a>
+    
+  
+
+</p>
+
+<h3 id="for-detailed-concept-click-here">For Detailed Concept <a href="https://code.nisarahmed.me/concept/Linkedlist">click here</a></h3>
+<h3 id="language---java">Language - Java</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /***************************************************************************
+ * A Linked List class with a private static inner Node class.
+ *
+ *****************************************************************************/
+
+import java.util.*;
+
+public class LinkedList&lt;AnyType&gt; implements Iterable&lt;AnyType&gt;
+{
+   private Node&lt;AnyType&gt; head;
+
+ /**
+   *  Constructs an empty list
+   */
+   public LinkedList()
+   {
+      head = null;
+   }
+ /**
+   *  Returns true if the list is empty
+   *
+   */
+   public boolean isEmpty()
+   {
+      return head == null;
+   }
+ /**
+   *  Inserts a new node at the beginning of this list.
+   *
+   */
+   public void addFirst(AnyType item)
+   {
+      head = new Node&lt;AnyType&gt;(item, head);
+   }
+ /**
+   *  Returns the first element in the list.
+   *
+   */
+   public AnyType getFirst()
+   {
+      if(head == null) throw new NoSuchElementException();
+
+      return head.data;
+   }
+ /**
+   *  Removes the first element in the list.
+   *
+   */
+   public AnyType removeFirst()
+   {
+      AnyType tmp = getFirst();
+      head = head.next;
+      return tmp;
+   }
+ /**
+   *  Inserts a new node to the end of this list.
+   *
+   */
+   public void addLast(AnyType item)
+   {
+      if( head == null)
+         addFirst(item);
+      else
+      {
+         Node&lt;AnyType&gt; tmp = head;
+         while(tmp.next != null) tmp = tmp.next;
+
+         tmp.next = new Node&lt;AnyType&gt;(item, null);
+      }
+   }
+ /**
+   *  Returns the last element in the list.
+   *
+   */
+   public AnyType getLast()
+   {
+      if(head == null) throw new NoSuchElementException();
+
+      Node&lt;AnyType&gt; tmp = head;
+      while(tmp.next != null) tmp = tmp.next;
+
+      return tmp.data;
+   }
+ /**
+   *  Removes all nodes from the list.
+   *
+   */
+   public void clear()
+   {
+      head = null;
+   }
+ /**
+   *  Returns true if this list contains the specified element.
+   *
+   */
+   public boolean contains(AnyType x)
+   {
+      for(AnyType tmp : this)
+         if(tmp.equals(x)) return true;
+
+      return false;
+   }
+ /**
+   *  Returns the data at the specified position in the list.
+   *
+   */
+   public AnyType get(int pos)
+   {
+      if (head == null) throw new IndexOutOfBoundsException();
+
+      Node&lt;AnyType&gt; tmp = head;
+      for (int k = 0; k &lt; pos; k++) tmp = tmp.next;
+
+      if( tmp == null) throw new IndexOutOfBoundsException();
+
+      return tmp.data;
+   }
+ /**
+   *  Returns a string representation
+   *
+   */
+   public String toString()
+   {
+      StringBuffer result = new StringBuffer();
+      for(Object x : this)
+      	result.append(x + " ");
+
+      return result.toString();
+   }
+ /**
+   *  Inserts a new node after a node containing the key.
+   *
+   */
+   public void insertAfter(AnyType key, AnyType toInsert)
+   {
+      Node&lt;AnyType&gt; tmp = head;
+
+      while(tmp != null &amp;&amp; !tmp.data.equals(key)) tmp = tmp.next;
+
+      if(tmp != null)
+         tmp.next = new Node&lt;AnyType&gt;(toInsert, tmp.next);
+   }
+ /**
+   *  Inserts a new node before a node containing the key.
+   *
+   */
+   public void insertBefore(AnyType key, AnyType toInsert)
+   {
+      if(head == null) return;
+
+      if(head.data.equals(key))
+      {
+         addFirst(toInsert);
+         return;
+      }
+
+      Node&lt;AnyType&gt; prev = null;
+      Node&lt;AnyType&gt; cur = head;
+
+      while(cur != null &amp;&amp; !cur.data.equals(key))
+      {
+         prev = cur;
+         cur = cur.next;
+      }
+      //insert between cur and prev
+      if(cur != null)
+         prev.next = new Node&lt;AnyType&gt;(toInsert, cur);
+   }
+ /**
+   *  Removes the first occurrence of the specified element in this list.
+   *
+   */
+   public void remove(AnyType key)
+   {
+      if(head == null)
+         throw new RuntimeException("cannot delete");
+
+      if( head.data.equals(key) )
+      {
+         head = head.next;
+         return;
+      }
+
+      Node&lt;AnyType&gt; cur  = head;
+      Node&lt;AnyType&gt; prev = null;
+
+      while(cur != null &amp;&amp; !cur.data.equals(key) )
+      {
+         prev = cur;
+         cur = cur.next;
+      }
+
+      if(cur == null)
+         throw new RuntimeException("cannot delete");
+
+      //delete cur node
+      prev.next = cur.next;
+   }
+ /**
+   *  Returns a deep copy of the list
+   *  Complexity: O(n^2)
+   */
+   public  LinkedList&lt;AnyType&gt; copy1()
+   {
+      LinkedList&lt;AnyType&gt; twin = new LinkedList&lt;AnyType&gt;();
+      Node&lt;AnyType&gt; tmp = head;
+      while(tmp != null)
+      {
+         twin.addLast( tmp.data );
+         tmp = tmp.next;
+      }
+
+      return twin;
+   }
+ /**
+   *  Returns a deep copy of the list
+   *  Complexity: O(n)
+   */
+   public LinkedList&lt;AnyType&gt; copy2()
+   {
+      LinkedList&lt;AnyType&gt; twin = new LinkedList&lt;AnyType&gt;();
+      Node&lt;AnyType&gt; tmp = head;
+      while(tmp != null)
+      {
+         twin.addFirst( tmp.data );
+         tmp = tmp.next;
+      }
+
+      return twin.reverse();
+   }
+ /**
+   *  Reverses the list
+   *  Complewxity: O(n)
+   */
+   public LinkedList&lt;AnyType&gt; reverse()
+   {
+      LinkedList&lt;AnyType&gt; list = new LinkedList&lt;AnyType&gt;();
+      Node&lt;AnyType&gt; tmp = head;
+      while(tmp != null)
+      {
+         list.addFirst( tmp.data );
+         tmp = tmp.next;
+      }
+      return list;
+   }
+ /**
+   *  Returns a deep copy of the immutable list
+   *  It uses a tail reference.
+   *  Complexity: O(n)
+   */
+   public LinkedList&lt;AnyType&gt; copy3()
+   {
+      LinkedList&lt;AnyType&gt; twin = new LinkedList&lt;AnyType&gt;();
+      Node&lt;AnyType&gt; tmp = head;
+      if(head==null) return null;
+      twin.head = new Node&lt;AnyType&gt;(head.data, null);
+      Node&lt;AnyType&gt; tmpTwin = twin.head;
+      while(tmp.next != null)
+      {
+         tmp = tmp.next;
+         tmpTwin.next = new Node&lt;AnyType&gt;(tmp.data, null);
+         tmpTwin = tmpTwin.next;
+      }
+
+      return twin;
+   }
+
+ /*******************************************************
+ *
+ *  The Node class
+ *
+ ********************************************************/
+   private static class Node&lt;AnyType&gt;
+   {
+      private AnyType data;
+      private Node&lt;AnyType&gt; next;
+
+      public Node(AnyType data, Node&lt;AnyType&gt; next)
+      {
+         this.data = data;
+         this.next = next;
+      }
+   }
+
+ /*******************************************************
+ *
+ *  The Iterator class
+ *
+ ********************************************************/
+
+   public Iterator&lt;AnyType&gt; iterator()
+   {
+      return new LinkedListIterator();
+   }
+
+   private class LinkedListIterator  implements Iterator&lt;AnyType&gt;
+   {
+      private Node&lt;AnyType&gt; nextNode;
+
+      public LinkedListIterator()
+      {
+         nextNode = head;
+      }
+
+      public boolean hasNext()
+      {
+         return nextNode != null;
+      }
+
+      public AnyType next()
+      {
+         if (!hasNext()) throw new NoSuchElementException();
+         AnyType res = nextNode.data;
+         nextNode = nextNode.next;
+         return res;
+      }
+
+      public void remove() { throw new UnsupportedOperationException(); }
+   }
+
+
+
+/*****   Include the main() for testing and debugging  *****/
+
+
+   public static void main(String[] args)
+   {
+      LinkedList&lt;String&gt; list = new LinkedList &lt;String&gt;();
+      list.addFirst("p");
+      list.addFirst("a");
+      list.addFirst("e");
+      list.addFirst("h");
+      System.out.println(list);
+
+		LinkedList&lt;String&gt; twin = list.copy3();
+      System.out.println(twin);
+
+      System.out.println(list.get(0));
+//		System.out.println(list.get(4));   //exception
+
+      list.addLast("s");
+      Iterator itr = list.iterator();
+      while(itr.hasNext())
+         System.out.print(itr.next() + " ");
+      System.out.println();
+
+      for(Object x : list)
+         System.out.print(x + " ");
+      System.out.println();
+
+      list.insertAfter("e", "ee");
+      System.out.println(list);
+      System.out.println(list.getLast());
+
+      list.insertBefore("h", "yy");
+      System.out.println(list);
+
+      list.remove("p");
+      System.out.println(list);
+	}
+}
+
+
+</code></pre></div></div>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+
+
+  <div class="container-fluid justify-content-center">
+
+  
+
+  
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-2"  href="/assets/image/ds.jpg" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class=" fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="mailto:ahmed.04786@gmail.com" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://www.facebook.com/anisar840" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-facebook fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://www.github.com/mahmednisar" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://www.hackerrank.com/mahmednisar" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#baff97'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-hackerrank fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://www.instagram.com/mahmednisar" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://www.linkedin.com/in/mahmednisar" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://medium.com/@mahmednisar" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#00ab6c'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-medium fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://t.me/mahmednisar" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#0088cc'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-telegram-plane fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://www.twitter.com/mahmednisar" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://api.whatsapp.com/send?phone=919587991487" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#25d366'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-whatsapp fa-1x"></i>
+      
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-2"  href="https://stackexchange.com/users/16655875" target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#f48024'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-stack-overflow fa-1x"></i>
+      
+    </a>
+  
+  
+
+</div>
+  
+  <small class="text-muted mb-2">
+    &copy; 2019 <strong>Nisar Ahmed</strong>
+  </small>
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>
