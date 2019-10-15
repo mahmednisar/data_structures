@@ -30,7 +30,7 @@ paginate_path: "/articles/page-:num/"
 
 
 ### Posts Permalink ###
-permalink: concept/:title
+permalink: articles/:title
 
 
 ### Collections ###

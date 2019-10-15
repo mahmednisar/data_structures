@@ -268,3 +268,14 @@ public LinkedList<AnyType> copy3()
 ```
 
 ### For Detailed program in  [C](https://ds.nisarahmed.me/concept/Linkedlist-Program#c), [Java](https://ds.nisarahmed.me/concept/Linkedlist-Program#java)
+
+
+
+
+
+
+
+
+
+
+
