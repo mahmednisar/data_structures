@@ -6,7 +6,7 @@ color: primary
 description: A linked list is a linear data structure where each element is a separate object.
 ---
 
-### For Detailed Concept [click here](https://code.nisarahmed.me/concept/Linkedlist)
+### For Detailed Concept [click here](https://ds.nisarahmed.me/concept/Linkedlist)
 ### Language - Java
 
  ```

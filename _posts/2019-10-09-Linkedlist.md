@@ -267,4 +267,4 @@ public LinkedList<AnyType> copy3()
 }
 ```
 
-### For Detailed program [click here](https://code.nisarahmed.me/concept/Linkedlist-Program)
+### For Detailed program [click here](https://ds.nisarahmed.me/concept/Linkedlist-Program)
